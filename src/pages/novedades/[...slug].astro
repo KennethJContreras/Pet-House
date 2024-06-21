@@ -2,14 +2,9 @@
 import Base from "../../layouts/Base.astro";
 import SectionCard from "../../components/SectionCard.astro";
 
-interface Novedad {
-  slug: string;
-  titulo: string;
-  descripcion: string;
-  imagen: string;
-}
+
 export async function getStaticPaths() {
-  const novedades: Novedad[] = [
+  const novedades= [
     {
       slug: undefined,
       titulo: "Tienda de Astro",
