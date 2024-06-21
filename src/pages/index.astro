@@ -1,0 +1,125 @@
+---
+import Base from "../layouts/Base.astro";
+import SectionCard from "../components/SectionCard.astro";
+import PrettySection from "../components/PrettySection.astro";
+
+const sections = [
+  {
+    titulo: "Encuentra tu Compañero Ideal",
+    descripcion:
+      "Descubre a tu nuevo amigo de cuatro patas. Nuestra app te facilita buscar entre una variedad de mascotas que necesitan un hogar. Usa filtros avanzados para encontrar la mascota perfecta según tus preferencias de raza, tamaño, edad y más. Conoce a tu futuro compañero hoy mismo.",
+    source: "/images/pets.jpg",
+  },
+  {
+    titulo: "Comparte y Encuentra un Hogar para tu Mascota",
+    descripcion:
+      "Publica anuncios de adopción de manera rápida y sencilla. Proporciona detalles, fotos y videos de tu mascota para atraer a posibles adoptantes. Ayuda a tu mascota a encontrar el hogar amoroso que merece, donde pueda prosperar y ser feliz.",
+    source: "/images/encuentraHogar.webp",
+  },
+  {
+    titulo: "Historias de Adopción Inspiradoras",
+    descripcion:
+      "Sumérgete en conmovedoras historias de adopciones exitosas. Lee y comparte experiencias de otros usuarios que han encontrado a sus compañeros ideales a través de nuestra app. Estas historias no solo te motivarán, sino que también te mostrarán el impacto positivo de la adopción.",
+    source: "/images/historias.jpg",
+  },
+  {
+    titulo: "Comunicación Directa y Segura",
+    descripcion:
+      "Conéctate al instante con adoptantes y dueños de mascotas usando nuestra función de mensajería directa. Comunícate en tiempo real para hacer preguntas, obtener más información y coordinar detalles de la adopción. Envía imágenes, stickers y ubicaciones para una experiencia de comunicación enriquecida y segura.",
+    source: "/images/mensajeria.png",
+  },
+];
+---
+
+<Base title="Inicio">
+  <!-- bienvenida -->
+  <section>
+    <!-- Container -->
+    <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-16">
+      <!-- Component -->
+      <div
+        class="grid grid-cols-1 items-center justify-items-start gap-8 sm:gap-20 lg:grid-cols-2"
+      >
+        <!-- Image Div -->
+        <div
+          class="flex flex-col items-center justify-center rounded-xl bg-[#f7f6f2] p-6"
+        >
+          <img
+            src="/images/pets.jpg"
+            alt="Features Image"
+            class="inline-block h-full w-full max-w-[640px] rounded-2xl object-cover"
+          />
+        </div>
+        <!-- Content -->
+        <div class="max-w-[720px]">
+          <h2 class="mb-2 mt-6 pb-4 text-3xl font-extrabold md:text-5xl">
+            Bienvenido a Pet House
+          </h2>
+          <p class="mb-10 max-w-[528px] text-xl text-[#636262] lg:mb-12">
+            Pet House es tu plataforma ideal para encontrar el compañero
+            perfecto y dar a las mascotas una nueva oportunidad. Navega entre
+            cientos de mascotas en adopción, publica anuncios fácilmente, y
+            disfruta de conmovedoras historias de éxito. ¡Únete y cambia una
+            vida hoy mismo!
+          </p>
+          <a
+            href="#"
+            class="mr-5 inline-block rounded-full border border-solid border-[#c9fd02] bg-[#c9fd02] px-6 py-4 text-center font-bold text-black transition hover:border-black hover:bg-white"
+            >Log in</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- estadisticas -->
+  <div class="bg-secundary py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+        <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+          <dt class="text-base leading-7 text-gray-600">Descargas</dt>
+          <dd
+            class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            +500 mil
+          </dd>
+        </div>
+        <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+          <dt class="text-base leading-7 text-gray-600">Mascotas adoptadas</dt>
+          <dd
+            class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            +20 mil
+          </dd>
+        </div>
+        <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+          <dt class="text-base leading-7 text-gray-600">Mascotas esperando</dt>
+          <dd
+            class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            +6000
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- secciones de info -->
+  {
+    sections.map((section, index) =>
+      index % 2 === 0 ? (
+        <SectionCard
+          titulo={section.titulo}
+          descripcion={section.descripcion}
+          imagenSrc={section.source}
+        />
+      ) : (
+        <PrettySection
+          titulo={section.titulo}
+          descripcion={section.descripcion}
+          imagenSrc={section.source}
+        />
+      )
+    )
+  }
+</Base>

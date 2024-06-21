@@ -1,0 +1,15 @@
+---
+interface Props {
+  pregunta: string;
+  respuesta: string;
+}
+
+const { pregunta, respuesta } = Astro.props;
+---
+
+<div class="relative my-3 w-full rounded-md border border-gray-300 px-12 py-8">
+  <div class="max-w-3xl">
+    <h2 class="font-bold text-black text-xl">{pregunta}</h2>
+    <p class="font-inter mt-4 text-base font-light text-gray-500">{respuesta}</p>
+  </div>
+</div>

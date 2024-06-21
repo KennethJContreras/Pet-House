@@ -1,0 +1,27 @@
+---
+interface Props {
+  tituloHistoria: string;
+  descripcion: string;
+  imagenSrc: string;
+  autor: string;
+}
+
+const { tituloHistoria, descripcion, imagenSrc, autor} = Astro.props;
+---
+<section class="bg-[#f2f2f7]">
+    <!-- Container -->
+    <div class="mx-auto w-full max-w-7xl py-10 px-5 md:px-10 md:py-3 lg:py-5">
+      <!-- Component -->
+      <div class="flex flex-col-reverse justify-start gap-8 sm:gap-20 lg:flex-row">
+        <img src={imagenSrc} alt="" class="inline-block max-w-xl" />
+        
+        <div class="flex flex-col items-start lg:justify-center">
+        <h2 class="text-3xl font-bold sm:text-4xl">{tituloHistoria}</h2>
+          <p class="mb-6 max-w-md text-[#636262] md:mb-12">
+            {descripcion}
+          </p>
+          <p class="font-bold">{autor}</p>
+        </div>
+      </div>
+    </div>
+  </section>

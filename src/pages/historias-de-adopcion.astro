@@ -1,0 +1,51 @@
+---
+import Base from "../layouts/Base.astro";
+import StoryCard from "../components/StoryCard.astro";
+import Title from "../components/Title.astro";
+
+const storyCards = [
+  {
+    titulo: "Un Nuevo Comienzo con Luna",
+    descripcion:
+      "Adoptar a Luna ha sido una de las mejores decisiones de mi vida. Llegó a nuestra casa llena de amor y energía, transformando nuestras rutinas diarias en momentos llenos de alegría. No solo le dimos un hogar, sino que también encontramos un nuevo miembro de la familia.",
+    imagen: "/images/historias/LunaStory.jpg",
+    nombre: "María González",
+  },
+  {
+    titulo: "Max, Nuestro Compañero Inseparable",
+    descripcion:
+      "Desde que adoptamos a Max, nuestra casa se ha llenado de risas y cariño. Su lealtad y afecto nos han enseñado el verdadero significado de la amistad. Gracias a Pet House, encontramos al compañero perfecto para nuestras aventuras diarias.",
+    imagen: "/images/historias/MaxStory.png",
+    nombre: "Katia Pérez",
+  },
+  {
+    titulo: "Rocky, el Guardián de Nuestro Hogar",
+    descripcion:
+      "Adoptar a Rocky ha sido una bendición. Su energía y entusiasmo han revitalizado nuestra casa. Cada día con él es una nueva aventura, y su amor incondicional ha hecho que nuestra familia se sienta completa. Pet House hizo que el proceso fuera sencillo y seguro.",
+    imagen: "/images/historias/RockyStory.jpg",
+    nombre: "Taylor Torres",
+  },
+  {
+    titulo: "Mila, la Amiga Perfecta",
+    descripcion:
+      "Mila ha traído una cantidad inmensa de alegría a nuestras vidas. Su dulce carácter y su amor por nosotros son inigualables. Adoptarla a través de Pet House fue una experiencia maravillosa, y no podríamos estar más agradecidos por encontrar a nuestra amiga perfecta.",
+    imagen: "/images/historias/MilaStory.jpg",
+    nombre: "Valeria Salgado",
+  },
+];
+---
+
+<Base title="Historias">
+  <Title titulo="Historias de Éxito" descripcion="" />
+  <!-- Historias -->
+  {
+    storyCards.map((story) => (
+      <StoryCard
+        tituloHistoria={story.titulo}
+        descripcion={story.descripcion}
+        imagenSrc={story.imagen}
+        autor={story.nombre}
+      />
+    ))
+  }
+</Base>

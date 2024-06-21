@@ -1,0 +1,67 @@
+---
+import Base from "../layouts/Base.astro";
+import QuestionCard from "../components/QuestionCard.astro";
+import Title from "../components/Title.astro";
+
+interface Question {
+  pregunta: string;
+  respuesta: string;
+}
+const questionCards: Question[] = [
+  {
+    pregunta: "¿Cómo puedo adoptar una mascota a través de Pet House?",
+    respuesta:
+      "Para adoptar una mascota, simplemente navega por las listas de mascotas disponibles en nuestra plataforma. Utiliza los filtros para encontrar la mascota que se ajuste a tus preferencias. Una vez que encuentres una mascota que te interese, puedes contactar al dueño o refugio directamente a través de nuestra función de mensajería instantánea para obtener más información y coordinar el proceso de adopción.",
+  },
+  {
+    pregunta: "¿Es seguro adoptar a través de Pet House?",
+    respuesta:
+      "Sí, en Pet House tomamos muy en serio la seguridad de nuestros usuarios y mascotas. Todas las comunicaciones a través de nuestra plataforma están protegidas, y nos aseguramos de que los datos personales sean manejados con confidencialidad. Además, alentamos a los adoptantes y dueños a realizar encuentros en lugares públicos y a seguir nuestras recomendaciones de seguridad durante el proceso de adopción.",
+  },
+  {
+    pregunta: "¿Cómo puedo publicar una mascota en adopción?",
+    respuesta:
+      "Para publicar una mascota en adopción, primero debes crear una cuenta en Pet House y estar autenticado. Luego, selecciona la opción de 'Publica tu mascota', completa el formulario con la información de tu mascota, incluyendo fotos y videos, y publica el anuncio. Tu anuncio será visible para todos los usuarios que estén buscando adoptar.",
+  },
+  {
+    pregunta:
+      "¿Qué tipo de información debo incluir en el perfil de mi mascota?",
+    respuesta:
+      "En el perfil de tu mascota, incluye detalles importantes como la edad, raza, tamaño, estado de salud, temperamento, y cualquier otra información relevante. Agregar fotos y videos también ayuda a que los posibles adoptantes conozcan mejor a la mascota y tomen una decisión informada.",
+  },
+  {
+    pregunta: "¿Cómo funciona la mensajería instantánea en Pet House?",
+    respuesta:
+      "La mensajería instantánea en Pet House permite a los adoptantes y dueños de mascotas comunicarse de forma rápida y segura. Una vez que encuentras una mascota de tu interés o un posible adoptante, puedes iniciar una conversación directamente desde la plataforma. Además, puedes enviar imágenes, stickers y ubicaciones para facilitar el proceso de adopción.",
+  },
+  {
+    pregunta: "¿Puedo compartir mi historia de adopción en Pet House?",
+    respuesta:
+      "¡Sí! Nos encanta escuchar y compartir historias de adopción exitosas. Puedes compartir tu experiencia a través de la sección de 'Historias de Adopción'. Simplemente completa el formulario con tu historia, fotos y cualquier otro detalle que desees incluir. Inspirarás a otros usuarios y ayudarás a promover la adopción responsable.",
+  },
+];
+---
+
+<Base title="Preguntas Frecuentes">
+  <section>
+    <!-- Container -->
+    <div
+      class="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-5 md:px-10"
+    >
+      <!-- Component -->
+      <Title
+        titulo="Preguntas Frecuentes"
+        descripcion="Encuentra respuestas a las preguntas más comunes sobre el uso de Pet House. Queremos asegurarnos de que tengas toda la información necesaria para disfrutar de una experiencia fluida y segura."
+      />
+      <!-- FAQs -->
+      <div class="mt-10 flex w-full max-w-4xl flex-col">
+        {questionCards.map((question) => (
+          <QuestionCard
+            pregunta={question.pregunta}
+            respuesta={question.respuesta}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</base>

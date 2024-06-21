@@ -1,0 +1,25 @@
+---
+interface Props {
+    titulo: string;
+    descripcion: string;
+    imagenSrc: string;
+    fechaLanzamiento: string;
+}
+
+const { titulo, descripcion, imagenSrc, fechaLanzamiento } = Astro.props;
+---
+
+<a href="#" class="flex flex-col gap-4 rounded-2xl border border-solid border-[#b1b1b1] bg-[#f5f8ff] p-6 font-bold text-black transition hover:[box-shadow:rgb(0,_0,_0)_7px_7px]">
+    <img src={imagenSrc} alt="" class="inline-block h-60 w-full object-cover" />
+    <div class="w-full pt-4">
+      <p class="mb-4 text-xl font-semibold">{titulo}</p>
+      <p class="mb-5 font-normal text-[#636262] lg:mb-8">{descripcion}</p>
+      <div class="mx-auto flex max-w-[480px] flex-row items-center text-left">
+        <div class="flex flex-col items-start">
+          <div class="flex items-start max-[991px]:flex-col lg:items-center">
+            <p class="text-sm text-[#636262]">{fechaLanzamiento}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>

@@ -1,0 +1,110 @@
+---
+import SectionCard from "../components/SectionCard.astro";
+import Base from "../layouts/Base.astro";
+import ValueCard from "../components/ValueCard.astro";
+import Banner from "../components/Banner.astro";
+
+interface Value {
+  titulo: string;
+  descripcion: string;
+}
+
+interface Section {
+  titulo: string;
+  descripcion: string;
+  source: string;
+}
+
+const valueCards: Value[] = [
+  {
+    titulo: "Compasión",
+    descripcion:
+      "Nos comprometemos a tratar a todas las mascotas y personas con empatía y cuidado, asegurando que cada adopción se maneje con sensibilidad y comprensión.",
+  },
+  {
+    titulo: "Transparencia",
+    descripcion:
+      "Valoramos la honestidad y la claridad en todas nuestras comunicaciones y procesos, garantizando que todos los involucrados tengan la información que necesitan para tomar decisiones informadas.",
+  },
+  {
+    titulo: "Seguridad",
+    descripcion:
+      "Proveemos una plataforma segura para la adopción y comunicación, protegiendo la privacidad y los datos personales de nuestros usuarios y garantizando la seguridad de las mascotas.",
+  },
+  {
+    titulo: "Innovación",
+    descripcion:
+      "Nos esforzamos por mejorar continuamente nuestra plataforma, utilizando tecnología avanzada para facilitar el proceso de adopción y ofrecer una experiencia de usuario excepcional.",
+  },
+  {
+    titulo: "Comunidad",
+    descripcion:
+      "Fomentamos un sentido de comunidad entre adoptantes, dueños de mascotas y amantes de los animales, promoviendo el apoyo mutuo y el intercambio de experiencias e historias de éxito.",
+  },
+  {
+    titulo: "Compasión",
+    descripcion:
+      "Asumimos la responsabilidad de cada adopción que facilitamos, trabajando diligentemente para asegurar que cada mascota sea colocada en un hogar adecuado y amoroso.",
+  },
+];
+
+const sections : Section[] = [
+  {
+    titulo: "Misión",
+    descripcion:
+      "En Pet House, nuestra misión es conectar a las mascotas que necesitan un hogar con personas amorosas y responsables. Nos dedicamos a facilitar el proceso de adopción mediante una plataforma segura, intuitiva y accesible. Trabajamos incansablemente para crear una comunidad inclusiva y solidaria, donde cada adopción signifique una vida transformada y una familia enriquecida. Promovemos la adopción responsable, la educación sobre el cuidado de las mascotas y el bienestar animal, aspirando a un mundo donde cada mascota tenga un hogar lleno de amor.",
+    source: "/images/encuentraHogar.webp",
+  },
+  {
+    titulo: "Visión",
+    descripcion:
+      "Nuestra visión es crear una plataforma que conecte a animales sin hogar con familias amorosas, reduciendo el abandono animal y brindando alegría a las personas a través de la adopción de mascotas. Queremos construir una comunidad donde cada mascota tenga un hogar lleno de amor y las personas encuentren compañía y felicidad gracias a sus nuevos compañeros.",
+    source: "/images/historias.jpg",
+  },
+];
+---
+
+<Base title="Quienes somos">
+ <Banner 
+  titulo="Quiénes Somos"
+  descripcion = 
+  "En Pet House, creemos en la importancia de encontrar hogares amorosos para todas las mascotas. Nuestra misión es facilitar el proceso de adopción, conectar a los adoptantes con las mascotas adecuadas y ofrecer una plataforma segura y accesible para todos. Nos apasiona mejorar la vida de los animales y las personas que los adoptan, creando una comunidad unida por el amor y el respeto hacia las mascotas. Con Pet House, cada adopción es una nueva oportunidad para cambiar una vida."
+ />
+ 
+  <!-- Nuestros valores -->
+  <section>
+    <!-- Container -->
+    <div class="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-16">
+      <!-- Heading Div -->
+      <div class="mx-auto w-full max-w-3xl text-center">
+        <h2 class="text-3xl font-semibold md:text-5xl">Nuestros valores</h2>
+        <div class="mx-auto mb-8 mt-4 max-w-[528px] md:mb-12 lg:mb-16">
+          <p class="text-[#636262]">
+            En Pet House, nos guiamos por valores fundamentales. Creamos una comunidad inclusiva y solidaria donde cada adopción transforma vidas y enriquece familias.          </p>
+        </div>
+      </div>
+      <!-- Features Div -->
+      <div
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 lg:gap-12"
+      >
+        <!-- Valores -->
+        {
+          valueCards.map((card) => (
+            <ValueCard valor={card.titulo} descripcion={card.descripcion} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- seccion de mission y vision  -->
+  {
+    sections.map((section) => (
+      <SectionCard
+        titulo={section.titulo}
+        descripcion={section.descripcion}
+        imagenSrc={section.source}
+      />
+    ))
+  }
+</base>
