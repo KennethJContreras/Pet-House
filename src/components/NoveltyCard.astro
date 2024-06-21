@@ -4,12 +4,13 @@ interface Props {
     descripcion: string;
     imagenSrc: string;
     fechaLanzamiento: string;
+    href: string;
 }
 
-const { titulo, descripcion, imagenSrc, fechaLanzamiento } = Astro.props;
+const { titulo, descripcion, imagenSrc, fechaLanzamiento, href } = Astro.props;
 ---
 
-<a href="#" class="flex flex-col gap-4 rounded-2xl border border-solid border-[#b1b1b1] bg-[#f5f8ff] p-6 font-bold text-black transition hover:[box-shadow:rgb(0,_0,_0)_7px_7px]">
+<a href=`/novedades/${href}` class="flex flex-col gap-4 rounded-2xl border border-solid border-[#b1b1b1] bg-[#f5f8ff] p-6 font-bold text-black transition hover:[box-shadow:rgb(0,_0,_0)_7px_7px]">
     <img src={imagenSrc} alt="" class="inline-block h-60 w-full object-cover" />
     <div class="w-full pt-4">
       <p class="mb-4 text-xl font-semibold">{titulo}</p>
